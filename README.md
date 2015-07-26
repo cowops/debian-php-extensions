@@ -1,0 +1,48 @@
+Debian-PHP-Extensions
+=====================
+
+Useful PHP extensions
+
+Requirements
+------------
+
+This role requires a debian compliant system such as ubuntu.
+
+Role Variables
+--------------
+
+php_extensions:
+    - php5-curl
+    - php5-dbg
+    - php5-intl
+    - php5-mcrypt
+    - php5-mysqlnd
+    - php5-apcu
+    - php5-geoip
+    - php5-imagick
+    - php5-memcache
+    - php5-mongo
+    - php5-readline
+    - php5-redis
+
+Dependencies
+------------
+
+None
+
+Example Playbook
+----------------
+
+    - hosts: servers
+      roles:
+         - { role: loranger.debian-php-extensions, php_extensions: php5-curl,php5-mcrypt }
+
+Tasks
+-----
+
+
+
+License
+-------
+
+BSD
