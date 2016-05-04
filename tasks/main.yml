@@ -1,8 +1,8 @@
 ---
 - name: install php packages
-  apt: pkg={{ php.version }}-{{ item }} state=latest force=yes update_cache=yes
-  with_items: php.extensions
+  apt: pkg=php{{ php.version }}-{{ item }} state=latest force=yes update_cache=yes
+  with_items: "{{ php.extensions }}"
 
 - name: activate extensions
-  shell: phpenmod {{ php.version }}-{{ item }}
-  with_items: php.extensions
+  shell: phpenmod php{{ php.version }}-{{ item }}
+  with_items: "{{ php.extensions }}"
