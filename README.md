@@ -39,7 +39,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: loranger.debian-php-extensions, debian.version: wheezy, php.version: '55', php.extensions: php5-curl,php5-mcrypt }
+         - { role: cowops.debian-php-extensions, debian.version: wheezy, php.version: '55', php.extensions: php5-curl,php5-mcrypt }
 
 Tasks
 -----
