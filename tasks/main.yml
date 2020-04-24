@@ -1,7 +1,13 @@
 ---
+
+- name: build a packages list
+  set_fact:
+    php_packages: "{{ 'php' + php.version + '-' + item }}"
+  with_items: "{{ php.extensions }}"
+
 - name: install php packages
   apt:
-    pkg: "{{ 'php' + php.version + '-' + php.extensions }}"
+    pkg: "{{ php_packages }}"
     state: latest
     force: yes
     update_cache: yes
