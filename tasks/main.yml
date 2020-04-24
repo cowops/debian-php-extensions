@@ -1,11 +1,10 @@
 ---
 - name: install php packages
   apt:
-    pkg: php{{ php.version }}-{{ item }}
+    pkg: 'php{{ php.version }}-{{ php.extensions }}'
     state: latest
     force: yes
     update_cache: yes
-  with_items: "{{ php.extensions }}"
 
 - name: activate extensions
   shell: phpenmod php{{ php.version }}-{{ item }}
