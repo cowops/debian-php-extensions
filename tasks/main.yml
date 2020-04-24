@@ -2,7 +2,7 @@
 
 - name: build a packages list
   set_fact:
-    php_packages: "{{ 'php' + php.version + '-' + item }}"
+    php_packages: "php{{ php.version }}-{{ item }}"
   with_items: "{{ php.extensions }}"
 
 - name: install php packages
