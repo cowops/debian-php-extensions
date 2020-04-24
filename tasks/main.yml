@@ -1,7 +1,7 @@
 ---
 - name: install php packages
   apt:
-    name: php{{ php.version }}-{{ item }}
+    pkg: php{{ php.version }}-{{ item }}
     state: latest
     force: yes
     update_cache: yes
