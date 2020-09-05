@@ -2,8 +2,13 @@
 
 - name: build a packages list
   set_fact:
-    php_packages: "php{{ php.version }}-{{ item }}"
+    php_packages: "{{ php_packages + [ 'php' + php.version|string + '-' + item ] }}"
   with_items: "{{ php.extensions }}"
+  vars:
+    php_packages: []
+
+- debug:
+    var: php_packages
 
 - name: install php packages
   apt:
@@ -13,5 +18,5 @@
     update_cache: yes
 
 - name: activate extensions
-  shell: phpenmod php{{ php.version }}-{{ item }}
-  with_items: "{{ php.extensions }}"
+  shell: phpenmod {{ item }}
+  with_items: "{{ php_packages }}"
