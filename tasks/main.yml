@@ -7,9 +7,6 @@
   vars:
     php_packages: []
 
-- debug:
-    var: php_packages
-
 - name: install php packages
   apt:
     name: "{{ php_packages }}"
